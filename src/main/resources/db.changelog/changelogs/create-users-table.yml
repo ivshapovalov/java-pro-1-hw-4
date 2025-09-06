@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: "1757183762"
+      author: "Shapovalov Ivan"
+      changes:
+        - createTable:
+            ifNotExists: true
+            tableName: users
+            remarks: "Users"
+            columns:
+              - column:
+                  name: "id"
+                  type: bigserial
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: username
+                  type: varchar(255)
+                  remarks: "User name"
+                  constraints:
+                    nullable: false
+                    unique: true
+
