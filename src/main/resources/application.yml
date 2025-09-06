@@ -1,0 +1,14 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: hw4
+  datasource:
+    url: jdbc:postgresql://localhost:5435/hw4
+    username: admin
+    password: admin
+    type: com.zaxxer.hikari.HikariDataSource
+  liquibase:
+    enabled: true
+    change-log: db.changelog/changelog.yml
+    default-schema: public
