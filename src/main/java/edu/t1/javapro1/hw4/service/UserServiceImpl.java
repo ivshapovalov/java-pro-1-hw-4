@@ -1,6 +1,6 @@
 package edu.t1.javapro1.hw4.service;
 
-import edu.t1.javapro1.hw4.dao.UserDao;
+import edu.t1.javapro1.hw4.dao.UserRepository;
 import edu.t1.javapro1.hw4.model.User;
 import org.springframework.stereotype.Service;
 
@@ -9,29 +9,34 @@ import java.util.List;
 @Service("userService")
 public class UserServiceImpl implements UserService {
 
-    private final UserDao userDao;
+    private final UserRepository userRepository;
 
-    public UserServiceImpl(UserDao userDao) {
-        this.userDao = userDao;
+    public UserServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     @Override
     public User save(User user) {
-        return userDao.save(user);
+        return userRepository.save(user);
     }
 
     @Override
     public User findById(Long id) {
-        return userDao.findById(id).orElseThrow(() -> new RuntimeException("User Not Found"));
+        return userRepository.findById(id).orElseThrow(() -> new RuntimeException("User Not Found"));
     }
 
     @Override
     public List<User> findAll() {
-        return userDao.findAll();
+        return userRepository.findAll();
     }
 
     @Override
     public boolean deleteById(Long id) {
-        return userDao.deleteById(id);
+        try {
+            userRepository.deleteById(id);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 }
