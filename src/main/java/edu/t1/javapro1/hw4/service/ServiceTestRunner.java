@@ -61,6 +61,6 @@ public class ServiceTestRunner implements CommandLineRunner {
         List<User> allUsersAfterSecondDelete = userService.findAll();
         System.out.printf("findAll() after delete %s: %s%n", savedUser2.getId(), allUsersAfterSecondDelete);
 
-        System.out.println("=== ВСЕ МЕТОДЫ UserDao УСПЕШНО ПРОВЕРЕНЫ ===");
+        System.out.println("=== ВСЕ МЕТОДЫ UserService УСПЕШНО ПРОВЕРЕНЫ ===");
     }
 }
