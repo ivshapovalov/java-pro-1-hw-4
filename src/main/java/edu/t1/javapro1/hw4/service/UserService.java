@@ -1,15 +1,19 @@
 package edu.t1.javapro1.hw4.service;
 
-import edu.t1.javapro1.hw4.model.User;
+import edu.t1.javapro1.hw4.dto.incoming.request.CreateUserRequest;
+import edu.t1.javapro1.hw4.dto.incoming.response.UserResponse;
+import edu.t1.javapro1.hw4.persistence.model.User;
 
 import java.util.List;
 
 public interface UserService {
-    User save(User user);
+    UserResponse createUser(CreateUserRequest createUserRequest);
 
-    User findById(Long id);
+    UserResponse findUserResponseById(Long id);
 
-    List<User> findAll();
+    User findUserById(Long id);
 
-    boolean deleteById(Long id);
+    List<UserResponse> findAllUsers();
+
+    boolean deleteUserById(Long id);
 }
