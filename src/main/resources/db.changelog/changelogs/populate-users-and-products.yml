@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: "1758567251"
+      author: "Shapovalov Ivan"
+      changes:
+        - sql:
+            comment: "Insert 3 users and 2 products for each user"
+            splitStatements: true
+            sql: |
+              INSERT INTO users (id, username) VALUES 
+              (1, 'ivan_ivanov'),
+              (2, 'petr_petrov'),
+              (3, 'sidor_sidorov');
+              
+              INSERT INTO products (account_number, type, balance, user_id) VALUES 
+              ('ACC001', 'CREDIT_CARD', 1000.50, 1),
+              ('ACC002', 'DEBIT_CARD', 2500.75, 1),
+              ('ACC003', 'SAVINGS', 5000.00, 2),
+              ('ACC004', 'CREDIT_CARD', 1500.25, 2),
+              ('ACC005', 'DEBIT_CARD', 3000.00, 3),
+              ('ACC006', 'SAVINGS', 7500.50, 3);
+
+              SELECT setval('users_id_seq', (SELECT MAX(id) FROM users));
+              
+              SELECT setval('products_id_seq', (SELECT MAX(id) FROM products));

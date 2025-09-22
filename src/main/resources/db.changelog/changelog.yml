@@ -1,4 +1,10 @@
 databaseChangeLog:
   - include:
-      file: "changelogs/create-users-table.yml"
+      file: changelogs/create-users-table.yml
+      relativeToChangelogFile: true
+  - include:
+      file: changelogs/create-products-table.yml
+      relativeToChangelogFile: true
+  - include:
+      file: changelogs/populate-users-and-products.yml
       relativeToChangelogFile: true
