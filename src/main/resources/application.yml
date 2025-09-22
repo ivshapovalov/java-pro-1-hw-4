@@ -1,12 +1,12 @@
 server:
-  port: 8080
+  port: ${SERVER_PORT}
 spring:
   application:
     name: hw4
   datasource:
-    url: jdbc:postgresql://localhost:5435/hw4
-    username: admin
-    password: admin
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
     type: com.zaxxer.hikari.HikariDataSource
   liquibase:
     enabled: true
@@ -14,4 +14,8 @@ spring:
     default-schema: public
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: validate
+
+springdoc:
+  swagger-ui:
+    enabled: true

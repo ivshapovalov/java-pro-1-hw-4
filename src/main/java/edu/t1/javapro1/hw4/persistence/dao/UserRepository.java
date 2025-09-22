@@ -1,9 +1,7 @@
-package edu.t1.javapro1.hw4.dao;
+package edu.t1.javapro1.hw4.persistence.dao;
 
-import edu.t1.javapro1.hw4.model.User;
+import edu.t1.javapro1.hw4.persistence.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
-@Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 }

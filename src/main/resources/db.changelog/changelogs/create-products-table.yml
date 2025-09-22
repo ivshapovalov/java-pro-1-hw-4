@@ -1,0 +1,45 @@
+databaseChangeLog:
+  - changeSet:
+      id: "1758567250"
+      author: "Shapovalov Ivan"
+      changes:
+        - createTable:
+            ifNotExists: true
+            tableName: products
+            remarks: "Products table"
+            columns:
+              - column:
+                  name: "id"
+                  type: bigserial
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: account_number
+                  type: varchar(20)
+                  remarks: "Account number"
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: type
+                  type: varchar(20)
+                  remarks: "Product type"
+                  constraints:
+                    nullable: false
+              - column:
+                  name: balance
+                  remarks: "Product balance"
+                  defaultValueNumeric: 0
+                  type: DECIMAL(19, 2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: "user_id"
+                  type: bigserial
+                  remarks: "User - product owner"
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_user
+                    references: users(id)
